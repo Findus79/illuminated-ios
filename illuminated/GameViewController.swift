@@ -140,6 +140,8 @@ class GameViewController:UIViewController, MTKViewDelegate {
                 yOffset[j] += yDelta[j]
             }
             
+            // just add an useless comment
+            
             // Update last triangle position with updated animated offsets
             let pos = lastTriVertex + j*vertexSize
             vData[pos] = xOffset[j]
