@@ -43,9 +43,11 @@ let vertexColorData:[Float] =
     1.0, 0.0, 0.0, 1.0
 ]
 
-class GameViewController:UIViewController, MTKViewDelegate {
+class GameViewController:UIViewController
+{
     
     var device: MTLDevice! = nil
+    var renderer: Renderer? = nil
     
     var commandQueue: MTLCommandQueue! = nil
     var pipelineState: MTLRenderPipelineState! = nil
@@ -71,11 +73,14 @@ class GameViewController:UIViewController, MTKViewDelegate {
             self.view = UIView(frame: self.view.frame)
             return
         }
+        
+        // setup renderer
+        renderer = Renderer(mtlDevice: device)
 
         // setup view properties
         let view = self.view as! MTKView
         view.device = device
-        view.delegate = self
+        view.delegate = renderer
         
         loadAssets()
     }
@@ -189,9 +194,5 @@ class GameViewController:UIViewController, MTKViewDelegate {
         
         commandBuffer.commit()
     }
-    
-    
-    func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-        
-    }
+
 }

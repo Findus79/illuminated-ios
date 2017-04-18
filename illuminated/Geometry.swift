@@ -14,9 +14,19 @@ import simd
 
 
 public func CreateUVSphere( rows: Int, cols: Int, withUV: Bool )
-    -> [Float32]
+    -> Array<Float32>
 {
-    let data: Float[]
+    var data = Array<Float32>()
+    
+    data.append( 32.0 )
+    
+    return data;
+}
+
+public func CreateIcosphere()
+    -> Array<Float32>
+{
+    var data = Array<Float32>()
     
     return data;
 }

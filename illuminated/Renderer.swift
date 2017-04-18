@@ -7,20 +7,24 @@
 //
 
 import Foundation
+import MetalKit
 import simd
 
 
-class Renderer
+class Renderer : NSObject, MTKViewDelegate
 {
-    public init() {
+    public init( mtlDevice : MTLDevice ) {
+        
+        m_Device = mtlDevice;
+    }
+    
+    func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
+        <#code#>
+    }
+    
+    func draw(in view: MTKView) {
         
     }
     
-    public func Update() {
-        
-    }
-    
-    public func Draw() {
-        
-    }
+    var m_Device: MTLDevice! = nil
 }
